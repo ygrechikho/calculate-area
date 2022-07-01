@@ -1,21 +1,31 @@
 public class Circle extends Figure implements ICalculableArea {
-    private Point a;
-    private Point b;
+    private final Point a;
+    private final Point b;
     private double Area = 0;
 
     public Circle(Point a, Point b) {
         this.a = a;
         this.b = b;
 
-        CalculateArea();
+        calculateArea();
     }
 
-    public double CalculateArea() {
+    public double calculateArea() {
         double r = a.distance(b);
-        Area = Math.PI * Math.pow(r, 2);
+        var area = Math.PI * Math.pow(r, 2);
+        if (area == 0) {
+            System.out.println("Area invalid, please re-check figure.");
+        } else {
+            Area = area;
+        }
 
         return Area;
     }
+
+    public double getArea() {
+        return Area;
+    }
+
     @Override
     public void printArea() {
         System.out.println("Circle area: " + Area);

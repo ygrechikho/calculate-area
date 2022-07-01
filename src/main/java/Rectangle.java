@@ -9,14 +9,25 @@ public class Rectangle extends Figure implements ICalculableArea {
         this.b = b;
         this.c = new Point(a.x, b.y);
 
-        CalculateArea();
+        calculateArea();
     }
 
-    public double CalculateArea() {
+    public double calculateArea() {
         double ab = (a.distance(b));
         double bc = (b.distance(c));
-        Area = ab * bc;
+        var area = ab * bc;
+        if(area == 0)
+        {
+            System.out.println("Area invalid, please re-check figure.");
+        }
+        else{
+            Area = area;
+        }
 
+        return Area;
+    }
+
+    public double getArea(){
         return Area;
     }
 
@@ -25,4 +36,3 @@ public class Rectangle extends Figure implements ICalculableArea {
         System.out.println("Rectangle area: " + Area);
     }
 }
-

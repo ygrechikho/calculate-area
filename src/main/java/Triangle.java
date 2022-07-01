@@ -1,7 +1,7 @@
 public class Triangle extends Figure implements ICalculableArea {
-    public Point a;
-    public Point b;
-    public Point c;
+    private Point a;
+    private Point b;
+    private Point c;
     private double Area = 0;
 
     public Triangle(Point a, Point b, Point c) {
@@ -9,17 +9,26 @@ public class Triangle extends Figure implements ICalculableArea {
         this.b = b;
         this.c = c;
 
-        CalculateArea();
+        calculateArea();
     }
 
     @Override
-    public double CalculateArea() {
+    public double calculateArea() {
         double ab = (a.distance(b));
         double bc = (b.distance(c));
         double ca = (c.distance(a));
         double sp = 0.5 * (ab + bc + ca);
-        Area = Math.sqrt(sp * (sp - ab) * (sp - bc) * (sp - ca));
-
+        var area = Math.sqrt(sp * (sp - ab) * (sp - bc) * (sp - ca));
+        if(area == 0)
+        {
+            System.out.println("Area invalid, please re-check figure.");
+        }
+        else{
+            Area = area;
+        }
+        return Area;
+    }
+    public double getArea(){
         return Area;
     }
 
