@@ -1,3 +1,3 @@
 public interface ICalculableArea {
-    void print(double area);
+    void printArea();
 }

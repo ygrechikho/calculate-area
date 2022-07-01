@@ -1,24 +1,28 @@
 public class Rectangle extends Figure implements ICalculableArea {
-    public Point a;
-    public Point b;
-    public Point c;
+    private Point a;
+    private Point b;
+    private Point c;
+    private double Area = 0;
 
     public Rectangle(Point a, Point b) {
         this.a = a;
         this.b = b;
         this.c = new Point(a.x, b.y);
+
+        CalculateArea();
     }
 
-    public double getArea() {
+    public double CalculateArea() {
         double ab = (a.distance(b));
         double bc = (b.distance(c));
+        Area = ab * bc;
 
-        return ab * bc;
+        return Area;
     }
 
     @Override
-    public void print(double area) {
-        System.out.println("Rectangle area: " + area);
+    public void printArea() {
+        System.out.println("Rectangle area: " + Area);
     }
 }
 

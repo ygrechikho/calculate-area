@@ -1,6 +1,6 @@
 public class Point {
-    public double x;
-    public double y;
+    protected double x;
+    protected double y;
 
     public Point(double a, double b) {
         this.x = a;
